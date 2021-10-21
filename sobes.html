@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       
+    </style>
+</head>
+<body>
+    <p style="margin: auto;">Расширяем команду, <b>приглашаем к работе начинающего
+        JS разработчика </b>с минимальным практическим опытом.<br>
+        Чем мы занимаемся: 
+        <ul  id='nan' class="ght">
+            <li>Продуктовая разработка.</li>
+            <li> Собственный продукт.</li>
+            <li>Используем <strong>JQuery</strong>.</li>
+        </ul>
+        
+         Планируем обновление и
+        выбираем между <em>React</em>, <span>Angular</span
+        style=”font-weight: bold”> и Vue. Склоняемся к <b>React</b>.</p>
+
+        <div id="box">Длинный текст</div>
+<style>
+    #box{
+        
+        overflow: hidden;
+       
+        transition: 1s;
+    }
+    #box:hover{
+        width: 50px;
+    }
+</style>
+    <script>
+        //  Задача №1
+
+        // Текст будет красного цвета т.к. в импортированно файле стоит тег !important в селекторе id
+
+        //Задача №2
+
+        /* Не отрабатывает правильно, потому что изначальная длинна блока div равна 100% 
+        что-бы добавить плавности надо увеличить время анимации или же сократить ширину блока, чтобы скрыть
+        текст требуется добавить свойство overflow */
+
+        //Задача №3
+            /* Если не объявить doctype, то браузер будет не корректно отражать страницу в браузере */
+        //Задача №4
+
+        /* Не уверен в своем ответе */
+
+        //Задача №5
+
+        //jpg - из плюсов, это вес файлов в формате jpg. Из минусов- потеря в качестве при сжатии, не прозрачный фон
+        
+        //png - нет потери качества при сжатие, прозрачный фон.
+        // Вес файлов данного формата, при увеличении ухудшается качество, как и любой пиксельной графики
+        
+        //svg - При увеличеннии изображения не теряет качества, т.к. это векторная графика. Большой вес при одинаковой
+        // сложности с предыдущими форматами
+
+        //Задача №6
+
+        let s = ('N'+'A'+'N'+'A'+'N'+'A').toLowerCase()+'-'+'A'+'A'+'A'+'!'+'!'+'!';
+            console.log(s,'Задача №6');
+        /* Перенос строки и два знака плюс вызывают NaN, так же метод toLowerCase() переводит
+        в нижний реестр все символы, а требуется только до знака тире */
+
+        //Задача №7
+        /* Поочередно выведет числа от 0 до 9 в консоль с минимальной задержкой 
+        установленной setTimeout */
+
+        //Задача №8
+        /* При использование строго режима выдаст ошибку, что перемменая не объявлена */
+        /* 'use strict'
+        count = 5
+        if(true){let count = 10}
+        console.log(count) */
+
+        /* При не строгом режиме консоль выведет, что переменная равна 5, т.к. конструкция if else
+        имеет собственную область видимасти */
+
+
+        //Задача №9
+
+       const goods = [
+    {id: 1, type: 'mango', price: 53},
+    {id: 2, type: 'mango', price: 77},
+    {id: 3, type: 'potato', price: 48},
+    {id: 4, type: 'potato', price: 52},
+    {id: 5, type: 'mango', price: 33},
+    {id: 6, type: 'apple', price: 50},
+    {id: 7, type: 'mango', price: 89},
+    {id: 8, type: 'apple', price: 60},
+    {id: 9, type: 'mango', price: 51},
+    {id: 10, type: 'apple', price: 80},
+        ];
+         
+         const arr = goods.filter((item)=>item.type!=='mango').map((item)=>{
+            if(item.type == 'apple') item.price= item.price*3
+            return item
+        }) 
+        
+        console.log(arr,'Задача №9-1')
+       
+         goods.forEach(item=>{
+            if (item.type === 'mango'){
+                goods.splice(goods.indexOf(item),1)
+               
+            }else if(item.type === 'apple'){
+                item.price = item.price*2
+            }else if(goods.some(item=>  item.type == 'mango')){
+                goods.forEach(item=>(item.type == 'mango')?goods.splice(goods.indexOf(item),1):item)
+            }
+        }) 
+    
+        
+        console.log(goods,'Задача №9-2')
+
+   
+        // Задача №10
+        const a='asfs'   
+        'use strict'
+        let b ={}
+         a.split('').reduceRight((acc,cur,index)=>{
+             if(acc){
+            b[acc] = null
+             }
+                b[cur] = b  
+        })
+        console.log(b,'Задача 10-1, через reduce так и не смог вывести нужный ответ')
+        const fillObject = (arr,val)=>{
+            if (arr.length == 0) return val;
+            
+            let result = {}
+            result[arr.pop()] = val
+            
+            return fillObject(arr,result)
+        }
+        console.log(fillObject(a.split(''),null),'Задача 10-2')
+
+   </script>
+</body>
+</html>
